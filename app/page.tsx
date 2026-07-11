@@ -1,10 +1,11 @@
-"use client"; // tetap perlu client karena scrollspy pakai useState/useEffect
+"use client";
 
-import PillNav from './component/PillNav'; // ✅ path diperbaiki: @/components, bukan ./component
-import HomeSection from './component/Home'; // ✅ komponen Home diimport
+import PillNav from './component/PillNav';
+import Home from './component/Home';
+import About from './component/About'; // ✅ ditambahkan
 import { useEffect, useState } from 'react';
 
-export default function Page() { // ✅ nama function diganti "Page" biar ga bentrok sama nama komponen Home yang diimport
+export default function Page() {
   const menuItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
@@ -33,7 +34,7 @@ export default function Page() { // ✅ nama function diganti "Page" biar ga ben
   }, []);
 
   return (
-    <main className="min-h-screen w-full bg-slate-50 dark:bg-black text-neutral-900 dark:text-slate-200 transition-colors duration-500 relative overflow-x-hidden">
+    <main className="min-h-screen w-full bg-slate-50 dark:bg-brand-dark text-neutral-900 dark:text-slate-200 transition-colors duration-500 relative overflow-x-hidden">
       <PillNav 
         logo="/logo.png"
         logoAlt="Logo Dwi Vindi Putri Maulana"
@@ -42,20 +43,14 @@ export default function Page() { // ✅ nama function diganti "Page" biar ga ben
       />
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* ✅ Section Home sekarang dipanggil sebagai komponen terpisah */}
-        <HomeSection />
+        <Home />
+        <About /> {/* ✅ menggantikan placeholder <section id="about"> yang lama */}
 
-        {/* SECTION 2: ABOUT — placeholder, nanti diganti komponen About.tsx */}
-        <section id="about" className="min-h-screen pt-24">
-          <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">About Section</h2>
-        </section>
-
-        {/* SECTION 3: PROJECTS — placeholder, nanti diganti komponen Projects.tsx */}
+        {/* Placeholder, belum dibuat komponennya */}
         <section id="projects" className="min-h-screen pt-24">
           <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Projects Section</h2>
         </section>
 
-        {/* SECTION 4: CONTACT — placeholder, nanti diganti komponen Contact.tsx */}
         <section id="contact" className="min-h-screen pt-24">
           <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Contact Section</h2>
         </section>

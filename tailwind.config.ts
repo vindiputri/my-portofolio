@@ -11,19 +11,28 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          dark: "#0D1B2A",      // Background Utama
-          card: "#1B263B",      // Background Kotak Bento
-          accent: "#F9D923",    // Kuning Cerah (Dark Mode)
-          accentLight: "#E6B800" // Kuning Emas (Light Mode)
+          dark: "#120f16",
+          card: "#1B263B",
+
+          // ✅ Dark mode accent (terang, kontras di atas gelap)
+          accent: "#A3E635",
+          accentLight: "#BEF264",
+          accentBorder: "#84CC16",
+
+          // ✅ Light mode accent (gelap, kontras di atas terang)
+          accentOnLight: "#4D7C0F",
+          accentOnLightHover: "#3F6212",
+          accentBorderOnLight: "#65A30D",
+
+          textPrimary: "#F4F4F5",
+          textSecondary: "#D4D4D8",
         }
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        heading: ["var(--font-jakarta)", "sans-serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+        heading: ["var(--font-heading)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
-        
       },
-  
     },
   },
   plugins: [],

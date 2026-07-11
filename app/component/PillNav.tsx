@@ -89,7 +89,7 @@ export default function PillNav({ logo, logoAlt = "Logo", items, activeHref, cla
 
                   {isActive && (
                     <span 
-                      className="w-1.5 h-1.5 rounded-full shrink-0 bg-[#F9D923] shadow-[0_0_6px_#F9D923] animate-pulse transition-all duration-300" 
+                      className="w-1.5 h-1.5 rounded-full shrink-0 bg-[#A3E635] shadow-[0_0_6px_#F9D923] animate-pulse transition-all duration-300" 
                       aria-hidden="true" 
                     />
                   )}
