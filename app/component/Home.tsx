@@ -8,12 +8,16 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
+    // 1. DIBUNGKUS DENGAN CONTAINER YANG KONSISTEN
+    // Menggunakan max-w-6xl mx-auto px-4 md:px-8 agar jarak tepi kirinya SAMA PERSIS dengan komponen About yang baru.
     <section 
       id="home" 
-      className="min-h-screen grid grid-cols-1 md:grid-cols-3 items-start gap-8 pt-44 pb-32"
+      className="min-h-screen max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-3 items-center gap-12 pt-32 pb-20"
     >
-      {/* KOLOM KIRI */}
-      <div className="flex flex-col items-center md:items-start text-center md:text-left order-1 md:-ml-8 lg:-ml-16">
+      
+      {/* KOLOM KIRI (Teks Utama) */}
+      {/* Perbaikan: Menghapus md:-ml-8 lg:-ml-16 agar tidak merusak responsivitas */}
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 w-full">
         <SplitText
           text="Hi, it's Vindi"
           tag="p"
@@ -21,7 +25,7 @@ export default function Home() {
           onLetterAnimationComplete={() => {}}
         />
 
-        <h1 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-900 dark:text-brand-textPrimary tracking-normal leading-relaxed">
+        <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-900 dark:text-brand-textPrimary tracking-tight leading-tight">
           <SplitText
             text="Front-End"
             tag="span"
@@ -55,10 +59,11 @@ export default function Home() {
         </RevealOnScroll>
       </div>
 
-      {/* KOLOM TENGAH: foto karakter */}
-      <div className="flex justify-center order-2 md:order-2">
+      {/* KOLOM TENGAH (Foto Karakter) */}
+      {/* Perbaikan: Pada layar HP/Tablet, foto berada paling atas (order-1), pada desktop di tengah (lg:order-2) */}
+      <div className="flex justify-center order-1 lg:order-2 w-full">
         <RevealOnScroll delay={0.3}>
-          <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-brand-accentBorderOnLight dark:border-brand-accentBorder">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-brand-accentBorderOnLight dark:border-brand-accentBorder shadow-xl">
             <Image
               src="/foto-vindi.png"
               alt="Foto Dwi Vindi Putri Maulana, Front-End Developer"
@@ -70,8 +75,9 @@ export default function Home() {
         </RevealOnScroll>
       </div>
 
-      {/* KOLOM KANAN */}
-      <div className="flex flex-col items-center md:items-end text-center md:text-right order-3 md:-mr-8 lg:-mr-16">
+      {/* KOLOM KANAN (Deskripsi & Sosial Media) */}
+      {/* Perbaikan: Menghapus md:-mr-8 lg:-mr-16 agar posisi kanan mengunci aman di dalam container */}
+      <div className="flex flex-col items-center lg:items-end text-center lg:text-right order-3 w-full">
         <RevealOnScroll delay={0.5}>
           <p className="font-sans text-sm md:text-base font-normal text-slate-600 dark:text-brand-textSecondary max-w-xs leading-relaxed">
             Saya percaya proses belajar tidak pernah benar-benar selesai. 
@@ -111,6 +117,7 @@ export default function Home() {
           </div>
         </RevealOnScroll>
       </div>
+
     </section>
   );
 }
