@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 
 import { ThemeProvider } from './component/ThemeProvider';
 import "./globals.css";
 
-// ✅ Poppins dengan weight terkontrol (400-600) — agak tebal tapi nggak terlalu tegas
+// ✅ Poppins untuk heading
 const poppins = Poppins({ 
   subsets: ["latin"], 
   weight: ["400", "500", "600"],
   variable: "--font-heading" 
 });
-const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
+
+// ✅ Poppins juga untuk body — variable beda, tapi font sama
+const poppinsBody = Poppins({ 
+  subsets: ["latin"], 
+  weight: ["400", "500"],
+  variable: "--font-body" 
+});
+
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
-
-
-// Ganti dengan domain asli kamu setelah deploy
 const siteUrl = "https://dwivindi.com"; 
 const siteName = "Dwi Vindi Putri Maulana | Informatics Engineer Portfolio";
 const siteDescription = "Portofolio profesional Dwi Vindi Putri Maulana, lulusan Teknik Informatika yang berfokus pada web & mobile software development dan manajemen data.";
@@ -69,8 +73,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" suppressHydrationWarning className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
-    <body className="font-sans antialiased bg-[#F7F8F5] dark:bg-brand-dark text-neutral-900 dark:text-slate-200 transition-colors duration-500">
+    <html lang="id" suppressHydrationWarning className={`${poppins.variable} ${poppinsBody.variable} ${jetbrainsMono.variable} scroll-smooth`}>
+      <body className="font-sans antialiased bg-[#F7F8F5] dark:bg-brand-dark text-neutral-900 dark:text-slate-200 transition-colors duration-500">
         <ThemeProvider>
           {children}
         </ThemeProvider>

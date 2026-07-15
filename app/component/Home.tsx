@@ -65,7 +65,7 @@ export default function Home() {
         <RevealOnScroll delay={0.3}>
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-brand-accentBorderOnLight dark:border-brand-accentBorder shadow-xl">
             <Image
-              src="/foto-vindi.png"
+              src="/assets/vindi.png"
               alt="Foto Dwi Vindi Putri Maulana, Front-End Developer"
               fill
               className="object-cover"

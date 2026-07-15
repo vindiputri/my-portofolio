@@ -29,15 +29,15 @@ export default function About() {
       </h2>
 
       <div className="mt-10 w-full">
-        <ScrollReveal
-          as="p"
-          containerClassName="w-full"
-          textClassName="!text-xl md:!text-2xl !leading-loose !font-normal text-neutral-700 dark:text-brand-textSecondary text-center"
-          baseOpacity={0.15}
-          enableBlur={true}
-          blurStrength={2}
-          wordAnimationEnd="+=800"
-          rotationEnd="+=100"
+      <ScrollReveal
+  as="p"
+  containerClassName="mt-10 w-full md:-ml-8 lg:-ml-16 md:-mr-8 lg:-mr-16"
+  textClassName="!font-heading !text-xl md:!text-2xl !leading-loose !font-normal text-neutral-700 dark:text-brand-textSecondary text-center"
+  baseOpacity={0.15}
+  enableBlur={true}
+  blurStrength={2}
+  wordAnimationEnd="+=800"
+  rotationEnd="+=100"
         >
           {aboutText}
         </ScrollReveal>

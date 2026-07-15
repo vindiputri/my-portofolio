@@ -10,16 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: "var(--background)",   // ✅ ditambahin di sini, format yang benar
+        foreground: "var(--foreground)",   // ✅ ditambahin di sini, format yang benar
         brand: {
           dark: "#120f16",
           card: "#1B263B",
 
-          // ✅ Dark mode accent (terang, kontras di atas gelap)
           accent: "#A3E635",
           accentLight: "#BEF264",
           accentBorder: "#84CC16",
 
-          // ✅ Light mode accent (gelap, kontras di atas terang)
           accentOnLight: "#4D7C0F",
           accentOnLightHover: "#3F6212",
           accentBorderOnLight: "#65A30D",

@@ -25,7 +25,7 @@ export default function ExperienceCard() {
         <div className="flex items-center gap-3">
           <div className="relative w-11 h-11 shrink-0 rounded-full overflow-hidden bg-white/5 border border-neutral-200 dark:border-neutral-800">
             <Image
-              src="/logo-komdigi.png"
+              src="/assets/kominfo.png"
               alt="Logo Kementerian Komunikasi dan Digital"
               fill
               className="object-contain p-1.5"

@@ -4,6 +4,8 @@ import PillNav from './component/PillNav';
 import Home from './component/Home';
 import About from './component/About'; 
 import Project from './component/Project'; 
+import Contact from './component/Contact';
+import Footer from '@/app/component/Footer';
 
 import { useEffect, useState } from 'react';
 
@@ -50,10 +52,9 @@ export default function Page() {
 
         <Project />
 
-        <section id="contact" className="min-h-screen pt-24">
-          <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Contact Section</h2>
-        </section>
+        <Contact />
       </div>
+      <Footer />
     </main>
   );
 }
