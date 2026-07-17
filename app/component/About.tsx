@@ -1,5 +1,10 @@
+"use client";
+
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import ShinyText from "@/app/component/ShinyText";
 import ScrollReveal from "@/app/component/ScrollReveal";
+import Image from "next/image";
 import ExperienceCard from "@/app/component/ExperienceCard";
 import LogoLoop from "@/app/component/LogoLoop";
 import { 
@@ -20,7 +25,18 @@ const skillLogos = [
 ];
 
 export default function About() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
   const aboutText = `Lulusan Teknik Informatika dengan fokus pada front-end development. Pengalaman meliputi Kerja Praktek membangun sistem pemetaan BTS, serta tugas akhir aplikasi speech recognition untuk anak SD. Aktif berorganisasi, kini fokus membangun antarmuka web yang rapi dan fungsional.`;
+
+  const isDark = mounted && resolvedTheme === "dark";
+  const baseColor = isDark ? "#262629" : "#a3a3a3";
+  const revealColor = isDark ? "#F4F4F5" : "#171717";
+
+  if (!mounted) return null;
 
   return (
     <section id="about" className="flex w-full flex-col items-center py-20 text-center">
@@ -29,30 +45,45 @@ export default function About() {
       </h2>
 
       <div className="mt-10 w-full">
-      <ScrollReveal
-  as="p"
-  containerClassName="mt-10 w-full md:-ml-8 lg:-ml-16 md:-mr-8 lg:-mr-16"
-  textClassName="!font-heading !text-xl md:!text-2xl !leading-loose !font-normal text-neutral-700 dark:text-brand-textSecondary text-center"
-  baseOpacity={0.15}
-  enableBlur={true}
-  blurStrength={2}
-  wordAnimationEnd="+=800"
-  rotationEnd="+=100"
+        <ScrollReveal
+          as="p"
+          containerClassName="mt-10 w-full md:-ml-8 lg:-ml-16 md:-mr-8 lg:-mr-16"
+          textClassName="!font-heading !text-xl md:!text-2xl !leading-loose !font-normal text-center"
+          baseColor={baseColor}
+          revealColor={revealColor}
+          wordAnimationEnd="+=400"
+          rotationEnd="+=300"
         >
           {aboutText}
         </ScrollReveal>
       </div>
 
-      {/* 3. PENDIDIKAN & PENGALAMAN: Garis pembatas dibuat full width, namun grid di dalamnya menggunakan px-4/px-8 agar teks tidak terlalu menempel ke layar saat di-resize */}
+      {/* ✅ Grid Pendidikan & Pengalaman — wrapper yang tadi hilang, ditambahkan lagi */}
       <div className="mt-28 w-full border-t border-neutral-200 pt-12 dark:border-neutral-800">
         <div className="grid w-full grid-cols-1 gap-10 px-4 text-left md:grid-cols-2 md:px-12 lg:px-24">
+          
           <div>
             <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">
               Pendidikan
             </h3>
-            <p className="text-neutral-700 dark:text-brand-textSecondary">
-              Teknik Informatika, Institut Teknologi Padang — IPK 3.75
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="relative w-11 h-11 shrink-0 rounded-full overflow-hidden bg-white/5 border border-neutral-200 dark:border-neutral-800">
+                <Image
+                  src="/Assets/Logo_ITP.png"
+                  alt="Logo Institut Teknologi Padang"
+                  fill
+                  className="object-contain p-1.5"
+                />
+              </div>
+              <div>
+                <p className="font-medium text-neutral-800 dark:text-brand-textPrimary">
+                  Teknik Informatika
+                </p>
+                <p className="text-sm text-neutral-500 dark:text-brand-textSecondary">
+                  Institut Teknologi Padang 
+                </p>
+              </div>
+            </div>
           </div>
 
           <div>
@@ -61,16 +92,15 @@ export default function About() {
             </h3>
             <ExperienceCard />
           </div>
+
         </div>
       </div>
 
-      {/* 4. SECTION SKILLS (LOGOLOOP): Benar-benar full horizontal dari ujung kiri ke ujung kanan layar */}
       <div className="mt-20 w-full border-t border-neutral-200 pt-12 dark:border-neutral-800">
         <div className="w-full">
           <LogoLoop logos={skillLogos} speed={30} gap={16} />
         </div>
       </div>
-
     </section>
   );
 }

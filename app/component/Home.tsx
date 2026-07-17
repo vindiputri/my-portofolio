@@ -41,7 +41,6 @@ export default function Home() {
             onLetterAnimationComplete={() => {}}
           />
         </h1>
-
         <RevealOnScroll delay={0.4}>
           <p className="font-sans text-sm md:text-base font-normal text-neutral-500 dark:text-brand-textSecondary mt-4 max-w-sm leading-relaxed">
             Belajar, membangun, dan terus bertumbuh — satu baris kode di satu waktu.

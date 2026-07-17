@@ -7,15 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ScrollReveal = ({
   children,
-  scrollContainerRef = null, // ✅ diberi default value, jadi otomatis opsional
-  enableBlur = true,
-  baseOpacity = 0.1,
-  baseRotation = 3,
-  blurStrength = 4,
+  scrollContainerRef = null,
+  baseColor = '#71717a',
+  revealColor = '#F4F4F5',
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'bottom bottom',
   wordAnimationEnd = 'bottom bottom',
+  baseRotation = 3,
   as: Tag = 'h2',
 }) => {
   const containerRef = useRef(null);
@@ -50,34 +49,22 @@ const ScrollReveal = ({
 
     const wordElements = el.querySelectorAll('.word');
 
+    // ✅ Cuma animasi warna, per-kata, dari abu-abu ke putih — tanpa opacity, tanpa blur
     gsap.fromTo(
       wordElements,
-      { opacity: baseOpacity, willChange: 'opacity' },
+      { color: baseColor },
       {
         ease: 'none',
-        opacity: 1,
+        color: revealColor,
         stagger: 0.05,
         scrollTrigger: { trigger: el, scroller, start: 'top bottom-=20%', end: wordAnimationEnd, scrub: true }
       }
     );
 
-    if (enableBlur) {
-      gsap.fromTo(
-        wordElements,
-        { filter: `blur(${blurStrength}px)` },
-        {
-          ease: 'none',
-          filter: 'blur(0px)',
-          stagger: 0.05,
-          scrollTrigger: { trigger: el, scroller, start: 'top bottom-=20%', end: wordAnimationEnd, scrub: true }
-        }
-      );
-    }
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, baseRotation, baseColor, revealColor, rotationEnd, wordAnimationEnd]);
 
   return (
     <Tag ref={containerRef} className={`my-5 ${containerClassName}`}>
