@@ -17,30 +17,41 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-    {
-    id: "sulam-tenun",
-    title: "Sulam Tenun",
-    type: "web",
-    tagline: "Katalog Digital Pelestarian Budaya dan Kerajinan Sulam Tenun.",
-    overview: "Platform katalog interaktif berbasis web untuk melestarikan, mendokumentasikan, dan mempromosikan ragam motif kain sulam tenun tradisional kepada audiens global.",
-    year: "2025",
-    role: "UI/UX Designer & Developer",
-    image: "/project-sulam-tenun.png",
-    techStack: ["React", "Tailwind CSS", "Framer Motion"],
-    features: [
-      "Katalog visual motif kain tradisional resolusi tinggi."
-    ],
-    keyFunctionalities: [
-      "Interactive Gallery: Menampilkan detail jahitan kain dengan fitur pembesaran gambar."
-    ],
-    futureImprovements: [
-      "Integrasi fitur e-commerce untuk pemesanan langsung."
-    ],
-    designScreens: [
-      { src: "/project-sulam-tenun.png", alt: "Halaman Detail Motif" }
-    ],
-    mappingImage: { src: "/project-sulam-tenun-mapping.png", alt: "Peta Persebaran Motif" }
-  },
+{
+  id: "toko-kayu", // ID ini biarkan tetap seperti ini agar routing halaman [id] kamu tidak error
+  title: "WoodFlow",
+  type: "web",
+  tagline: "Sistem Informasi Manajemen Mebel & Kayu: Katalog Komoditas, Inventaris Bahan Baku, dan Grafik Tren Transaksi.",
+  overview: "Web ini adalah sistem manajemen operasional internal terintegrasi sekaligus katalog online untuk bisnis mebel custom dan penyedia bahan kayu solid. Dibuat untuk menggantikan pencatatan manual, sistem ini mendata komoditas menjadi dua tipe utama (Pre-Order Mebel dan Penjualan Bahan Ready), mendeteksi otomatis peringatan stok kritis di bawah ambang batas aman, serta memetakan riwayat omzet penjualan ke dalam grafik tren penjualan harian yang dinamis.",
+  year: "2026",
+  role: "Front-End Developer",
+  image: "/assets/projek/kayu.webp", 
+  techStack: ["Laravel", "Tailwind CSS", "Chart.js", "MySQL"],
+  features: [
+    "Halaman Katalog Pelanggan Publik: Halaman etalase responsif yang memisahkan status produk secara otomatis berdasarkan harga dan tipe produk, menampilkan opsi 'Pre-Order Mebel' untuk furnitur jadi atau 'Bahan Ready' untuk material kayu olahan tanpa akses login.",
+    "Dashboard Pantauan Ringkasan Real-Time: Halaman utama admin dengan widget metrik instan untuk memantau Total Transaksi Hari Ini, grafik interaktif tren omzet 30 hari terakhir, serta indikator visual berbasis data relasional.",
+    "Sistem Peringatan Stok Kritis (Low-Stock Alert): Modul inventaris pintar yang otomatis memfilter data bahan baku kayu dan memunculkannya ke dalam daftar peringatan 'Hampir Habis' jika kuantitas stok menyentuh angka di bawah 10 unit.",
+    "Pencatatan Riwayat Transaksi Multistatus: Sistem pembukuan yang mencatat setiap nota masuk berdasarkan kategori item belanja (Preorder vs Penjualan Bahan) guna menghasilkan komparasi grafik pendapatan yang akurat."
+  ],
+  keyFunctionalities: [
+    "Integrasi Relasi 3 Tabel Utama: Logika penarikan data dinamis yang menghubungkan entitas Kategori, Produk/Bahan, dan Transaksi, memungkinkan admin menyaring serta melihat akumulasi total harga penjualan secara langsung sesuai waktu transaksi.",
+    "Tombol Interaktif Konsultasi Spesifikasi: Integrasi tautan langsung dari katalog produk menuju WhatsApp bisnis, memudahkan calon pelanggan menanyakan detail kustomisasi ukuran mebel atau stok balok kayu secara instan."
+  ],
+  futureImprovements: [
+    "Pengembangan Grafik Prediktif: Menambahkan algoritma peramalan sederhana pada Chart.js untuk memprediksi jenis kayu atau model mebel yang akan paling banyak dicari pada bulan berikutnya berdasarkan data histori transaksi."
+  ],
+  designScreens: [
+    { 
+      src: "/assets/projek/katalog.webp", 
+      alt: "Tampilan Katalog Depan : Integrasi halaman etalase publik " 
+    },
+
+     { 
+      src: "/assets/projek/dashboard.webp", 
+      alt: "Tampilan Dashboard Admin : Ringkasan metrik instan, grafik tren omzet, dan daftar peringatan stok kritis. " 
+    }
+  ],
+},
 
   {
   id: "talky-app",
@@ -50,8 +61,8 @@ export const projects: Project[] = [
   // Properti yang sebelumnya kurang:
   tagline: "Aplikasi Edukasi Pengucapan Bahasa Inggris Berbasis Offline untuk Anak-Anak",
   year: "2026", // Sesuaikan dengan tahun pembuatan
-  image: "/assets/projek/talky-cover.webp", // Sampul utama proyek untuk halaman depan
-  techStack: ["Unity", "C#", "Vosk AI", "Android SDK"], 
+  image: "/assets/projek/utamaapk.webp", // Sampul utama proyek untuk halaman depan
+  techStack: ["Unity", "C#", "Vosk", "Android SDK"], 
   
   // Properti yang sudah ada sebelumnya:
   overview: "Aplikasi mobile edukasi interaktif berbasis Android yang dirancang khusus dalam orientasi landscape untuk membantu anak-anak kelas 3 tingkat pemula dalam belajar pengucapan bahasa Inggris secara mandiri melalui model pengenalan suara (Speech Recognition) luring.",
@@ -62,23 +73,23 @@ export const projects: Project[] = [
   ],
   designScreens: [
     { 
-      src: "/assets/projek/talky-awal.webp", 
+      src: "/assets/projek/utamaapk.webp", 
       alt: "Halaman Awal: Gerbang utama aplikasi dengan visual menarik untuk menyambut anak-anak memulai belajar." 
     },
     { 
-      src: "/assets/projek/talky-menu-utama.webp", 
+      src: "/assets/projek/menuapk.webp", 
       alt: "Halaman Menu Level: Pilihan 3 tingkat kompetensi utama yang terstruktur, yaitu level Basic, Intermediate, dan Advanced." 
     },
     { 
-      src: "/assets/projek/talky-basic.webp", 
+      src: "/assets/projek/basic.webp", 
       alt: "Level Basic: Fokus pada pengenalan kosakata dasar di lingkungan sekitar anak, mencakup sub-menu School (Sekolah) dan Animals (Hewan)." 
     },
     { 
-      src: "/assets/projek/talky-intermediate.webp", 
+      src: "/assets/projek/inter.webp", 
       alt: "Level Intermediate: Peningkatan materi ke tingkat menengah yang interaktif, mencakup sub-menu Activities (Aktivitas Harian) dan Foods (Makanan/Minuman)." 
     },
     { 
-      src: "/assets/projek/talky-advanced.webp", 
+      src: "/assets/projek/advanced.webp", 
       alt: "Level Advanced: Tahap akhir pelatihan di mana anak ditantang untuk mengucapkan konstruksi Kalimat Sederhana secara utuh." 
     }
   ]

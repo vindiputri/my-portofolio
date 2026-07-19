@@ -11,10 +11,10 @@ import { useEffect, useState } from 'react';
 
 export default function Page() {
   const menuItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Beranda', href: '#home' },
+    { label: 'Tentang', href: '#about' },
+    { label: 'Proyek', href: '#projects' },
+    { label: 'Kontak', href: '#contact' },
   ];
 
   const [activeHref, setActiveHref] = useState('#home');
@@ -40,7 +40,7 @@ export default function Page() {
   return (
     <main className="min-h-screen w-full bg-slate-50 dark:bg-neutral-950 text-neutral-900 dark:text-slate-200 transition-colors duration-500 relative overflow-x-hidden">
       <PillNav 
-        logo="/logo.png"
+        logo="/assets/projek/logo.png"
         logoAlt="Logo Dwi Vindi Putri Maulana"
         items={menuItems} 
         activeHref={activeHref}

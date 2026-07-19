@@ -21,26 +21,35 @@ export default function Home() {
         <SplitText
           text="Hi, it's Vindi"
           tag="p"
-          className="font-sans text-base md:text-lg font-normal text-neutral-600 dark:text-brand-textSecondary mb-2"
+          className="font-sans text-base md:text-lg font-normal text-neutral-600 dark:text-brand-textSecondary mb-3"
           onLetterAnimationComplete={() => {}}
         />
 
-        <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-900 dark:text-brand-textPrimary tracking-tight leading-tight">
-          <SplitText
-            text="Front-End"
-            tag="span"
-            className="block"
-            delay={0.06}
-            onLetterAnimationComplete={() => {}}
-          />
-          <SplitText
-            text="Developer"
-            tag="span"
-            className="block text-brand-accentOnLight dark:text-brand-accent"
-            delay={0.08}
-            onLetterAnimationComplete={() => {}}
-          />
+        {/* PERBAIKAN TOTAL: Heading dengan leading-normal, padding vertikal, dan flex-col agar pembagian kata tidak tumpang tindih */}
+        <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-900 dark:text-brand-textPrimary tracking-tight leading-normal py-2 flex flex-col gap-1">
+          {/* Baris 1: Front-End */}
+          <span className="block h-auto overflow-visible py-1">
+            <SplitText
+              text="Front-End"
+              tag="span"
+              className="inline-block"
+              delay={0.06}
+              onLetterAnimationComplete={() => {}}
+            />
+          </span>
+          
+          {/* Baris 2: Developer (Warna Aksen) */}
+          <span className="block h-auto overflow-visible py-1 text-brand-accentOnLight dark:text-brand-accent">
+            <SplitText
+              text="Developer"
+              tag="span"
+              className="inline-block"
+              delay={0.12}
+              onLetterAnimationComplete={() => {}}
+            />
+          </span>
         </h1>
+
         <RevealOnScroll delay={0.4}>
           <p className="font-sans text-sm md:text-base font-normal text-neutral-500 dark:text-brand-textSecondary mt-4 max-w-sm leading-relaxed">
             Belajar, membangun, dan terus bertumbuh — satu baris kode di satu waktu.

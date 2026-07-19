@@ -10,7 +10,7 @@ import { projects } from "@/lib/projects";
 
 // Pindahkan data styling pastel ke map statis agar lib/projects tetap bersih dari class UI
 const pastelBackgrounds: Record<string, string> = {
-  "sulam-tenun": "bg-emerald-50",
+  "toko-kayu": "bg-emerald-50",
   "talky-app": "bg-pink-100",
   "bts-mapping-system": "bg-indigo-100",
   "jabal-rahmah": "bg-amber-100",

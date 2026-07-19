@@ -66,8 +66,8 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
         <div className="mb-10">
           <PillNav items={[
             { label: "Beranda", href: "/" },
-            { label: "Proyek", href: "/#projects" },
             { label: "Tentang", href: "/#about" },
+            { label: "Proyek", href: "/#projects" },
             { label: "Kontak", href: "/#contact" }
           ]} />
         </div>
