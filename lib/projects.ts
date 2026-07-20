@@ -26,16 +26,15 @@ export const projects: Project[] = [
   year: "2026",
   role: "Front-End Developer",
   image: "/assets/projek/kayu.webp", 
-  techStack: ["Laravel", "Tailwind CSS", "Chart.js", "MySQL"],
+  techStack: ["Laravel", "Tailwind CSS", "MySQL"],
   features: [
-    "Halaman Katalog Pelanggan Publik: Halaman etalase responsif yang memisahkan status produk secara otomatis berdasarkan harga dan tipe produk, menampilkan opsi 'Pre-Order Mebel' untuk furnitur jadi atau 'Bahan Ready' untuk material kayu olahan tanpa akses login.",
+    "Halaman Katalog Pelanggan Publik: Halaman etalase yang memisahkan status produk secara otomatis berdasarkan harga dan tipe produk, menampilkan opsi 'Pre-Order Mebel' untuk furnitur jadi atau 'Bahan Ready' untuk material kayu olahan tanpa akses login.",
     "Dashboard Pantauan Ringkasan Real-Time: Halaman utama admin dengan widget metrik instan untuk memantau Total Transaksi Hari Ini, grafik interaktif tren omzet 30 hari terakhir, serta indikator visual berbasis data relasional.",
     "Sistem Peringatan Stok Kritis (Low-Stock Alert): Modul inventaris pintar yang otomatis memfilter data bahan baku kayu dan memunculkannya ke dalam daftar peringatan 'Hampir Habis' jika kuantitas stok menyentuh angka di bawah 10 unit.",
     "Pencatatan Riwayat Transaksi Multistatus: Sistem pembukuan yang mencatat setiap nota masuk berdasarkan kategori item belanja (Preorder vs Penjualan Bahan) guna menghasilkan komparasi grafik pendapatan yang akurat."
   ],
   keyFunctionalities: [
     "Integrasi Relasi 3 Tabel Utama: Logika penarikan data dinamis yang menghubungkan entitas Kategori, Produk/Bahan, dan Transaksi, memungkinkan admin menyaring serta melihat akumulasi total harga penjualan secara langsung sesuai waktu transaksi.",
-    "Tombol Interaktif Konsultasi Spesifikasi: Integrasi tautan langsung dari katalog produk menuju WhatsApp bisnis, memudahkan calon pelanggan menanyakan detail kustomisasi ukuran mebel atau stok balok kayu secara instan."
   ],
   futureImprovements: [
     "Pengembangan Grafik Prediktif: Menambahkan algoritma peramalan sederhana pada Chart.js untuk memprediksi jenis kayu atau model mebel yang akan paling banyak dicari pada bulan berikutnya berdasarkan data histori transaksi."

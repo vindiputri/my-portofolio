@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ShinyText from "@/app/component/ShinyText";
-import Lanyard from "@/app/component/Lanyard"; 
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import dynamic from "next/dynamic";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
+const Lanyard = dynamic(() => import("@/app/component/Lanyard"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[400px] flex flex-col items-center justify-center text-neutral-400 gap-3 border border-dashed border-neutral-300 dark:border-neutral-800 rounded-3xl bg-neutral-50/50 dark:bg-neutral-900/10">
+      <div className="w-6 h-6 border-2 border-[#A3E635] border-t-transparent rounded-full animate-spin"></div>
+      <span className="text-xs font-medium">Memuat Visual 3D...</span>
+    </div>
+  )
+});
+
 export default function Contact() {
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section 
       id="contact" 
@@ -54,7 +87,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/30 hover:border-brand-accentOnLight dark:hover:border-brand-accent transition-all group"
             >
-              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 group-hover:bg-brand-accentOnLight dark:group-hover:bg-brand-accent group-hover:text-white dark:hover:text-neutral-900 transition-colors">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 group-hover:bg-brand-accentOnLight dark:group-hover:bg-brand-accent group-hover:text-white dark:group-hover:text-neutral-900 transition-colors">
                 <FaLinkedin size={18} />
               </div>
               <div className="flex flex-col text-left">
@@ -69,7 +102,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/30 hover:border-brand-accentOnLight dark:hover:border-brand-accent transition-all group"
             >
-              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 group-hover:bg-brand-accentOnLight dark:group-hover:bg-brand-accent group-hover:text-white dark:hover:text-neutral-900 transition-colors">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 group-hover:bg-brand-accentOnLight dark:group-hover:bg-brand-accent group-hover:text-white dark:group-hover:text-neutral-900 transition-colors">
                 <FaGithub size={18} />
               </div>
               <div className="flex flex-col text-left">
@@ -81,8 +114,18 @@ export default function Contact() {
         </div>
 
         {/* ✅ KOLOM KANAN: Lanyard */}
-        <div className="flex justify-center items-center order-1 lg:order-2 w-full position={[0, 0, 15]} gravity={[0, -40, 0]}">
-          <Lanyard />
+        <div 
+          ref={containerRef}
+          className="flex justify-center items-center order-1 lg:order-2 w-full min-h-[400px]"
+        >
+          {inView ? (
+            <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+          ) : (
+            <div className="w-full h-[400px] flex flex-col items-center justify-center text-neutral-400 gap-3 border border-dashed border-neutral-300 dark:border-neutral-800 rounded-3xl bg-neutral-50/50 dark:bg-neutral-900/10">
+              <div className="w-6 h-6 border-2 border-[#A3E635] border-t-transparent rounded-full animate-spin"></div>
+              <span className="text-xs font-medium">Memuat Visual 3D...</span>
+            </div>
+          )}
         </div>
 
       </div>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, Home as HomeIcon, ChevronRight, Map } from "lucide-react";
 import type { Metadata } from "next";
 import PillNav from "@/app/component/PillNav"; 
+import Footer from '@/app/component/Footer';
 
 const siteUrl = "https://dwivindi.com";
 
@@ -259,6 +260,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
         </div>
 
       </div>
+      <Footer />
     </main>
   );
 }

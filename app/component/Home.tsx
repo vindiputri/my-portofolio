@@ -12,7 +12,7 @@ export default function Home() {
     // Menggunakan max-w-6xl mx-auto px-4 md:px-8 agar jarak tepi kirinya SAMA PERSIS dengan komponen About yang baru.
     <section 
       id="home" 
-      className="min-h-screen max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-3 items-center gap-12 pt-32 pb-20"
+      className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-3 items-center gap-12 pt-32 pb-20"
     >
       
       {/* KOLOM KIRI (Teks Utama) */}

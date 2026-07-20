@@ -46,7 +46,7 @@ export default function Page() {
         activeHref={activeHref}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 transition-all duration-300">
         <Home />
         <About /> {/* ✅ menggantikan placeholder <section id="about"> yang lama */}
 

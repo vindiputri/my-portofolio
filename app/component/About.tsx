@@ -44,11 +44,11 @@ export default function About() {
         <ShinyText text="Tentang Saya" speed={3} color="#A3E635" shineColor="#F4F4F5" spread={120} />
       </h2>
 
-      <div className="mt-10 w-full">
+      <div className="mt-10 w-full flex justify-center text-center">
         <ScrollReveal
           as="p"
-          containerClassName="mt-10 w-full md:-ml-8 lg:-ml-16 md:-mr-8 lg:-mr-16"
-          textClassName="!font-heading !text-xl md:!text-2xl !leading-loose !font-normal text-center"
+          containerClassName="mt-10 w-full md:-ml-8 lg:-ml-16 md:-mr-8 lg:-mr-16 !text-center flex justify-center"
+          textClassName="!font-heading !text-xl md:!text-2xl !leading-loose !font-normal !text-center mx-auto max-w-4xl"
           baseColor={baseColor}
           revealColor={revealColor}
           wordAnimationEnd="+=400"

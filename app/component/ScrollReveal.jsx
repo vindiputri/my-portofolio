@@ -37,7 +37,7 @@ const ScrollReveal = ({
 
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
 
-    gsap.fromTo(
+    const anim1 = gsap.fromTo(
       el,
       { transformOrigin: '0% 50%', rotate: baseRotation },
       {
@@ -50,7 +50,7 @@ const ScrollReveal = ({
     const wordElements = el.querySelectorAll('.word');
 
     // ✅ Cuma animasi warna, per-kata, dari abu-abu ke putih — tanpa opacity, tanpa blur
-    gsap.fromTo(
+    const anim2 = gsap.fromTo(
       wordElements,
       { color: baseColor },
       {
@@ -62,7 +62,10 @@ const ScrollReveal = ({
     );
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      if (anim1.scrollTrigger) anim1.scrollTrigger.kill();
+      if (anim2.scrollTrigger) anim2.scrollTrigger.kill();
+      anim1.kill();
+      anim2.kill();
     };
   }, [scrollContainerRef, baseRotation, baseColor, revealColor, rotationEnd, wordAnimationEnd]);
 
