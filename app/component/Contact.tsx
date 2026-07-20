@@ -36,7 +36,7 @@ export default function Contact() {
 
           <div className="flex flex-col gap-4 w-full max-w-sm">
             <a 
-              href="mailto:email-kamu@gmail.com"
+              href="mailto:vindiputri9@gmail.com"
               className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/30 hover:border-brand-accentOnLight dark:hover:border-brand-accent transition-all group"
             >
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 group-hover:bg-brand-accentOnLight dark:group-hover:bg-brand-accent group-hover:text-white dark:group-hover:text-neutral-900 transition-colors">
@@ -44,12 +44,12 @@ export default function Contact() {
               </div>
               <div className="flex flex-col text-left">
                 <span className="text-xs font-medium text-neutral-400">Email</span>
-                <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">email-kamu@gmail.com</span>
+                <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">vindiputri9@gmail.com</span>
               </div>
             </a>
 
             <a 
-              href="https://linkedin.com/in/username-kamu"
+              href="https://linkedin.com/in/username"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/30 hover:border-brand-accentOnLight dark:hover:border-brand-accent transition-all group"
@@ -64,7 +64,7 @@ export default function Contact() {
             </a>
 
             <a 
-              href="https://github.com/username-kamu"
+              href="https://github.com/username"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/30 hover:border-brand-accentOnLight dark:hover:border-brand-accent transition-all group"
@@ -74,7 +74,7 @@ export default function Contact() {
               </div>
               <div className="flex flex-col text-left">
                 <span className="text-xs font-medium text-neutral-400">GitHub</span>
-                <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">username-kamu</span>
+                <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">vindiputri</span>
               </div>
             </a>
           </div>

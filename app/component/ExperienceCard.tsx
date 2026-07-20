@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 const tasks = [
-  "Melakukan orientasi dan pendataan lokasi BTS di salah satu daerah Sumatera Barat menggunakan Google Earth Pro.",
+  "Melakukan pendataan dan pemetaan lokasi BTS di salah satu daerah Sumatera Barat menggunakan Google Earth Pro.",
   "Berinisiatif bersama tim membangun website pemetaan BTS menggunakan Laravel, dengan fokus pengerjaan di bagian front-end.",
   "Mengembangkan fitur guest view untuk publik dan admin panel (CRUD) untuk pengelolaan data BTS.",
   "Mempresentasikan hasil kerja praktek kepada pembimbing lapangan di akhir masa penempatan.",

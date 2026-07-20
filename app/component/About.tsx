@@ -16,7 +16,7 @@ const skillLogos = [
   { node: <SiHtml5 size={20} color="#E34F26" />, title: "HTML5" },
   { node: <SiCss size={20} color="#1572B6" />, title: "CSS3" },
   { node: <SiJavascript size={20} color="#F7DF1E" />, title: "JavaScript" },
-  { node: <SiReact size={20} color="#61DAFB" />, title: "React" },
+  // { node: <SiReact size={20} color="#61DAFB" />, title: "React" },
   { node: <SiNextdotjs size={20} color="currentColor" />, title: "Next.js" },
   { node: <SiLaravel size={20} color="#FF2D20" />, title: "Laravel" },
   { node: <SiTailwindcss size={20} color="#06B6D4" />, title: "Tailwind CSS" },
@@ -30,7 +30,7 @@ export default function About() {
 
   useEffect(() => setMounted(true), []);
 
-  const aboutText = `Lulusan Teknik Informatika dengan fokus pada front-end development. Pengalaman meliputi Kerja Praktek membangun sistem pemetaan BTS, serta tugas akhir aplikasi speech recognition untuk anak SD. Aktif berorganisasi, kini fokus membangun antarmuka web yang rapi dan fungsional.`;
+  const aboutText = `Saya Vindi, lulusan Teknik Informatika dari Institut Teknologi Padang. Selama kuliah, saya berkesempatan mengembangkan sistem pemetaan BTS saat Kerja Praktek di Dinas Kominfotik Sumatera Barat, serta menyelesaikan tugas akhir berupa aplikasi speech recognition untuk membantu anak SD belajar Bahasa Inggris. Saat ini saya fokus mendalami front-end development, dengan minat pada pembangunan antarmuka web yang rapi dan mudah digunakan.`;
 
   const isDark = mounted && resolvedTheme === "dark";
   const baseColor = isDark ? "#262629" : "#a3a3a3";
@@ -41,7 +41,7 @@ export default function About() {
   return (
     <section id="about" className="flex w-full flex-col items-center py-20 text-center">
       <h2 className="text-2xl font-heading font-semibold tracking-tight md:text-3xl">
-        <ShinyText text="About Me" speed={3} color="#A3E635" shineColor="#F4F4F5" spread={120} />
+        <ShinyText text="Tentang Saya" speed={3} color="#A3E635" shineColor="#F4F4F5" spread={120} />
       </h2>
 
       <div className="mt-10 w-full">

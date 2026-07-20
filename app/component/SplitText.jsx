@@ -20,6 +20,8 @@ const SplitText = ({
   rootMargin = '-100px',
   textAlign = 'center',
   tag = 'p',
+  clip = true,
+  immediate = false, // ✅ ditambahkan
   onLetterAnimationComplete
 }) => {
   const ref = useRef(null);
@@ -27,7 +29,6 @@ const SplitText = ({
   const onCompleteRef = useRef(onLetterAnimationComplete);
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  // Keep callback ref updated
   useEffect(() => {
     onCompleteRef.current = onLetterAnimationComplete;
   }, [onLetterAnimationComplete]);
@@ -45,16 +46,13 @@ const SplitText = ({
   useGSAP(
     () => {
       if (!ref.current || !text || !fontsLoaded) return;
-      // Prevent re-animation if already completed
       if (animationCompletedRef.current) return;
       const el = ref.current;
 
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        } catch (_) {
-          /* ignore */
-        }
+        } catch (_) {}
         el._rbsplitInstance = null;
       }
 
@@ -88,32 +86,41 @@ const SplitText = ({
         reduceWhiteSpace: false,
         onSplit: self => {
           assignTargets(self);
-          return gsap.fromTo(
-            targets,
-            { ...from },
-            {
-              ...to,
-              duration,
-              ease,
-              stagger: delay / 1000,
-              scrollTrigger: {
-                trigger: el,
-                start,
-                once: true,
-                fastScrollEnd: true,
-                anticipatePin: 0.4
-              },
-              onComplete: () => {
-                animationCompletedRef.current = true;
-                onCompleteRef.current?.();
-              },
-              willChange: 'transform, opacity',
-              force3D: true
-            }
-          );
+ return gsap.fromTo(
+  targets,
+  { ...from },
+  {
+    ...to,
+    duration,
+    ease,
+    stagger: delay / 1000,
+    // ✅ Kalau immediate=true, animasi langsung jalan tanpa ScrollTrigger sama sekali
+    ...(immediate
+      ? {}
+      : {
+          scrollTrigger: {
+            trigger: el,
+            start,
+            once: true,
+            fastScrollEnd: true,
+            anticipatePin: 0.4
+          }
+        }),
+    onComplete: () => {
+      animationCompletedRef.current = true;
+      onCompleteRef.current?.();
+      gsap.set(targets, { clearProps: 'transform,willChange' });
+    },
+    willChange: 'transform, opacity',
+    force3D: true
+  }
+);
         }
       });
       el._rbsplitInstance = splitInstance;
+
+      // Pastikan ScrollTrigger cek ulang posisi elemen yang sudah ada di viewport sejak mount
+      requestAnimationFrame(() => ScrollTrigger.refresh());
 
       return () => {
         ScrollTrigger.getAll().forEach(st => {
@@ -121,24 +128,15 @@ const SplitText = ({
         });
         try {
           splitInstance.revert();
-        } catch (_) {
-          /* ignore */
-        }
+        } catch (_) {}
         el._rbsplitInstance = null;
       };
     },
     {
       dependencies: [
-        text,
-        delay,
-        duration,
-        ease,
-        splitType,
-        JSON.stringify(from),
-        JSON.stringify(to),
-        threshold,
-        rootMargin,
-        fontsLoaded
+        text, delay, duration, ease, splitType,
+        JSON.stringify(from), JSON.stringify(to),
+        threshold, rootMargin, fontsLoaded
       ],
       scope: ref
     }
@@ -150,7 +148,7 @@ const SplitText = ({
       wordWrap: 'break-word',
       willChange: 'transform, opacity'
     };
-    const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
+    const classes = `split-parent ${clip ? 'overflow-hidden' : 'overflow-visible'} inline-block whitespace-normal ${className}`;
     const Tag = tag || 'p';
 
     return (

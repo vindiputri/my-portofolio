@@ -32,10 +32,10 @@ export default function Projects() {
       {/* JUDUL UTAMA */}
       <div className="w-full text-center mb-16">
         <h2 className="text-2xl md:text-3xl font-heading font-semibold tracking-tight">
-          <ShinyText text="Featured Projects" speed={3} color="#A3E635" shineColor="#F4F4F5" spread={120} />
+          <ShinyText text="Projek Saya" speed={3} color="#A3E635" shineColor="#F4F4F5" spread={120} />
         </h2>
         <p className="text-neutral-500 dark:text-brand-textSecondary mt-3 text-sm md:text-base">
-          Beberapa proyek terpilih yang telah saya bangun dan kembangkan.
+          Beberapa proyek terpilih yang telah saya bangun.
         </p>
       </div>
 

@@ -64,7 +64,10 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
         {/* NAVIGATION PILL */}
         <div className="mb-10">
-          <PillNav items={[
+          <PillNav 
+          logo="/assets/projek/logo.png"
+          logoAlt="Logo V - Dwi Vindi Putri Maulana"
+          items={[
             { label: "Beranda", href: "/" },
             { label: "Tentang", href: "/#about" },
             { label: "Proyek", href: "/#projects" },
