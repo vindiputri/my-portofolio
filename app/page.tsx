@@ -6,6 +6,7 @@ import About from './component/About';
 import Project from './component/Project'; 
 import Contact from './component/Contact';
 import Footer from '@/app/component/Footer';
+import ScrollToTop from '@/app/component/ScrollToTop';
 
 import { useEffect, useState } from 'react';
 
@@ -55,6 +56,7 @@ export default function Page() {
         <Contact />
       </div>
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }
