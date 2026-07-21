@@ -72,7 +72,7 @@ export default function Home() {
 {/* KOLOM TENGAH (Foto Karakter) */}
 <div className="flex justify-center order-1 lg:order-2 w-full">
   <RevealOnScroll delay={0.3}>
-    <div className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] lg:w-[560px] lg:h-[560px]">
+    <div className="relative w-[380px] h-[380px] sm:w-[460px] sm:h-[460px] md:w-[540px] md:h-[540px] lg:w-[620px] lg:h-[620px]">
       <Image
         src="/assets/hero.png"
         alt="Foto Dwi Vindi Putri Maulana, Front-End Developer"

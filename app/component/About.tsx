@@ -69,7 +69,7 @@ export default function About() {
             <div className="flex items-center gap-3">
               <div className="relative w-11 h-11 shrink-0 rounded-full overflow-hidden bg-white/5 border border-neutral-200 dark:border-neutral-800">
                 <Image
-                  src="/Assets/Logo_ITP.png"
+                  src="/assets/Logo_ITP.png"
                   alt="Logo Institut Teknologi Padang"
                   fill
                   className="object-contain p-1.5"
