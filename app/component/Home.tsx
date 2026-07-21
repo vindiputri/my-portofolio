@@ -69,21 +69,20 @@ export default function Home() {
         </RevealOnScroll>
       </div>
 
-      {/* KOLOM TENGAH (Foto Karakter) */}
-      {/* Perbaikan: Pada layar HP/Tablet, foto berada paling atas (order-1), pada desktop di tengah (lg:order-2) */}
-      <div className="flex justify-center order-1 lg:order-2 w-full">
-        <RevealOnScroll delay={0.3}>
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-brand-accentBorderOnLight dark:border-brand-accentBorder shadow-xl">
-            <Image
-              src="/assets/vindi.png"
-              alt="Foto Dwi Vindi Putri Maulana, Front-End Developer"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </RevealOnScroll>
-      </div>
+{/* KOLOM TENGAH (Foto Karakter) */}
+<div className="flex justify-center order-1 lg:order-2 w-full">
+  <RevealOnScroll delay={0.3}>
+    <div className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] lg:w-[560px] lg:h-[560px]">
+      <Image
+        src="/assets/hero.png"
+        alt="Foto Dwi Vindi Putri Maulana, Front-End Developer"
+        fill
+        className="object-contain"
+        priority
+      />
+    </div>
+  </RevealOnScroll>
+</div>
 
       {/* KOLOM KANAN (Deskripsi & Sosial Media) */}
       {/* Perbaikan: Menghapus md:-mr-8 lg:-mr-16 agar posisi kanan mengunci aman di dalam container */}
